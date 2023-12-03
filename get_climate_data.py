@@ -3,9 +3,9 @@ import json
 import sys
 import re
 
+from collections import defaultdict
 
-
-# https://cckpapi.worldbank.org/cckp/v1/cmip6-x0.25_timeseries_hd30,hdd65,r50mm_timeseries_annual,seasonal_1950-2014,2015-2100_median,p10,p90_historical_ensemble_all_mean/USA?_format=json
+DELIMITER = ','
 
 def get_formatted_fields(field_collection):
 	formatted = '_'.join(
@@ -16,96 +16,177 @@ def get_formatted_fields(field_collection):
 	)
 	return formatted
 
+var_codes_to_names = {
+	'fd':		'Number of Frost Days (Tmin < 0°C)',
+	'pr':		'Precipitation',
+	'rx1day':	'Average Largest 1-Day Precipitation',
+	'rx5day':	'Average Largest 5-Day Cumulative Precipitation',
+	'tas':		'Average Mean Surface Air Temperature',
+	'tasmax':	'Average Maximum Surface Air Temperature',
+	'tasmin':	'Average Minimum Surface Air Temperature',
+	'tnn':		'Minimum of Daily Min-Temperature',
+	'tr':		'Number of Tropical Nights (T-min > 20°C)',
+	'txx':		'Maximum of Daily Max-Temperature',
+}
+
+var_codes_to_labels = {
+	'fd':		'num_frost_days',
+	'pr':		'precipitation',
+	'rx1day':	'max_1day_precipitation',
+	'rx5day':	'max_5day_cumulative_precipitation',
+	'tas':		'mean_temperature',
+	'tasmax':	'max_avg_temperature',
+	'tasmin':	'min_avg_temperature',
+	'tnn':		'min_temperature',
+	'tr':		'num_trop_nights',
+	'txx':		'max_temperature',
+}
+
+ordered_labels = [
+	'max_avg_temperature',
+	'min_avg_temperature',
+	'mean_temperature',
+	'max_temperature',
+	'min_temperature',
+	'num_frost_days',
+	'num_trop_nights',
+	'max_1day_precipitation',
+	'max_5day_cumulative_precipitation',
+	'precipitation',
+]
+
+labels_to_codes = {
+	'max_avg_temperature': 'tasmax',
+	'min_avg_temperature': 'tasmin',
+	'mean_temperature': 'tas',
+	'max_temperature': 'txx',
+	'min_temperature': 'tnn',
+	'num_frost_days': 'fd',
+	'num_trop_nights': 'tr',
+	'max_1day_precipitation': 'rx1day',
+	'max_5day_cumulative_precipitation': 'rx5day',
+	'precipitation': 'pr',
+}
+
 def get_climate_data():
+
 	host = 'https://cckpapi.worldbank.org'
 	endpoint = '/cckp/v1/'
 
-	collections =	['cmip6-x0.25']
-	types =			['timeseries']
+	collection_code		= 'era5-x0.5'
+	type_code 			= 'timeseries'
 
-	# can do a maximum of 5 fields per any request
-	variables_to_names = {
-		# number of days
-		'hd30':					'Hot Days above 30 degrees Celsius',
-		'hd35':					'Hot Days above 35 degrees Celsius',
-		'hd40':		 			'Hot Days above 40 degrees Celsius',
-		# 'hd45':					'Hot Days above 45 degrees Celsius',
 
-		# # risk categorizations: 0 is low 4 is high
-		# 'hdcat':				'Hot Day Heat Risk Categorization', 
-		# 'hdtrcat':				'Hot Day and Tropical Nights Heat Risk Categorization',
-		# 'hdtrhicat': 			'Hot Day and Tropical Nights with Humidity Heat Risk Categorization',
-		# 'hdtrhipopdensitycat':	'Temperature and Humidity-Based Heat + Population Risk Categorization',
-		# 'hdtrpopdensitycat': 	'Temperature-Based Heat + Population Risk Categorization',
-		# 'hicat': 				'Heat Index Heat Risk Categorization',
-		# 'trcat':				'Tropical Night Heat Risk Categorization',
-
-		# # millimeters of rainfall
-		'r20mm':				'Number of Days with Precipitation >20mm',
-		'r50mm':				'Number of Days with Precipitation >50mm',
-	}
-	variables = list(variables_to_names.keys())
-
-	products = 		['timeseries']
-	aggregations = 	[
-		'annual',
-		# 'seasonal'
-	]
-	periods = 	[
-		'1950-2014',
-		'2015-2100'
-	]
-	percentiles = 	[
-		# 'p10',
-		'median',
-		# 'p90'
-	]
-	scenarios = 	['historical']
-	models = 		['ensemble']
-	calculations =	['all']
-	statistics = 	['mean']
+	variable_placeholder 	= '{}'
+	product_code			= 'timeseries'
+	aggregation_code		= 'monthly'
+	period_code 			= '1950-2020'
+	percentile_code			= 'mean'
+	scenario_code			= 'historical'
+	model_code				= 'era5' # could also be x0.5
+	calculation_code		= 'era5'
+	stat_code				= 'mean'
 
 	all_fields = [
-		collections,
-		types,
-		variables,
-		products,
-		aggregations,
-		periods,
-		percentiles,
-		scenarios,
-		models,
-		calculations,
-		statistics,
+		collection_code,
+		type_code,
+		variable_placeholder,
+		product_code,
+		aggregation_code,
+		period_code,
+		percentile_code,
+		scenario_code,
+		model_code,
+		calculation_code,
+		stat_code
 	]
 
-	# state_keys = {}
-	geocodes = [['USA'] #+ [
-		# f'USA.{state_code}'
-		# for state_code
-		# in range(2593214, 2593264 + 1)
-	]#]
+	template_url = '_'.join(all_fields)
+
+	
+	geocodes = [['USA'] + [
+		f'USA.{state_code}'
+		for state_code
+		in range(2593214, 2593264 + 1)
+	]]
 
 
-	formatted_fields = get_formatted_fields(all_fields)
-	formatted_geocodes = get_formatted_fields(geocodes)
+	geocode_to_name = {
+		'USA.2593214':	'Alabama',
+		'USA.2593215':	'Alaska',
+		'USA.2593216':	'Arizona',
+		'USA.2593217':	'Arkansas',
+		'USA.2593218':	'California',
+		'USA.2593219':	'Colorado',
+		'USA.2593220':	'Connecticut',
+		'USA.2593221':	'Delaware',
+		'USA.2593222':	'District of Columbia',
+		'USA.2593223':	'Florida',
+		'USA.2593224':	'Georgia',
+		'USA.2593225':	'Hawaii',
+		'USA.2593226':	'Idaho',
+		'USA.2593227':	'Illinois',
+		'USA.2593228':	'Indiana',
+		'USA.2593229':	'Iowa',
+		'USA.2593230':	'Kansas',
+		'USA.2593231':	'Kentucky',
+		'USA.2593232':	'Louisiana',
+		'USA.2593233':	'Maine',
+		'USA.2593234':	'Maryland',
+		'USA.2593235':	'Massachusetts',
+		'USA.2593236':	'Michigan',
+		'USA.2593237':	'Minnesota',
+		'USA.2593238':	'Mississippi',
+		'USA.2593239':	'Missouri',
+		'USA.2593240':	'Montana',
+		'USA.2593241':	'Nebraska',
+		'USA.2593242':	'Nevada',
+		'USA.2593243':	'New Hampshire',
+		'USA.2593244':	'New Jersey',
+		'USA.2593245':	'New Mexico',
+		'USA.2593246':	'New York',
+		'USA.2593247':	'North Carolina',
+		'USA.2593248':	'North Dakota',
+		'USA.2593249':	'Ohio',
+		'USA.2593250':	'Oklahoma',
+		'USA.2593251':	'Oregon',
+		'USA.2593252':	'Pennsylvania',
+		'USA.2593253':	'Rhode Island',
+		'USA.2593254':	'South Carolina',
+		'USA.2593255':	'South Dakota',
+		'USA.2593256':	'Tennessee',
+		'USA.2593257':	'Texas',
+		'USA.2593258':	'Utah',
+		'USA.2593259':	'Vermont',
+		'USA.2593260':	'Virginia',
+		'USA.2593261':	'Washington',
+		'USA.2593262':	'West Virginia',
+		'USA.2593263':	'Wisconsin',
+		'USA.2593264':	'Wyoming',
+	}
 
-	formatted_fields = '_'.join(
-		map(
-			lambda fields: ','.join(fields),
-      			all_fields
-		)
-	)
+	collected_data = defaultdict(lambda: defaultdict(dict))
+	for var_code in var_codes_to_names.keys():
+		full_url = f'{host}{endpoint}{template_url.format(var_code)}/{get_formatted_fields(geocodes)}?_format=json'
+		# print(full_url)
+		response = requests.get(full_url).content
+		if not response:
+			print(f'skipping {var_code}', file=sys.stderr)
+		response_data = json.loads(response)['data']
+		for state, year_data in response_data.items():
+			for year, data in year_data.items():
+				collected_data[year][state][var_code] = data
 
-	request_url = f'{host}{endpoint}{formatted_fields}/{formatted_geocodes}'
-	print(request_url)
-	params = {'_format': 'json'}
+	# write results to stdout in csv format
+	print(DELIMITER.join(['year', 'state'] + ordered_labels))
 
-	response = json.loads(requests.get(request_url, params=params).content)
-	response_data = response['data']
-
-	print(response_data)
-
+	for year, state_data in collected_data.items():
+		for state, metric_data in state_data.items():
+			entry = [year, state]
+			for label in ordered_labels:
+				code = labels_to_codes[label]
+				entry.append(str(metric_data[code]))
+			print(DELIMITER.join(entry))
 
 if __name__ == '__main__':
 	get_climate_data()
