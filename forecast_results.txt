@@ -1,0 +1,207 @@
+Alabama
+	no significant forecasting relationships identified
+Alaska
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.04 
+	precipitation_diff forecasts vader_diff, p value: 0.0073 
+Arizona
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0257 
+	precipitation_diff forecasts vader_diff, p value: 0.0006 
+Arkansas
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.001 
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0158 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0034 
+	max_temperature_diff forecasts vader_diff, p value: 0.0101 
+	min_temperature_diff forecasts vader_diff, p value: 0.0016 
+	num_trop_nights_diff forecasts vader_diff, p value: 0.0049 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0004 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0001 
+	precipitation_diff forecasts vader_diff, p value: 0.0001 
+California
+	num_frost_days_diff forecasts vader_diff, p value: 0.0333 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0146 
+	precipitation_diff forecasts vader_diff, p value: 0.0078 
+Colorado
+	no significant forecasting relationships identified
+Connecticut
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0011 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0006 
+	precipitation_diff forecasts vader_diff, p value: 0.0011 
+Delaware
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0003 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0006 
+	precipitation_diff forecasts vader_diff, p value: 0.0002 
+Florida
+	max_temperature_diff forecasts vader_diff, p value: 0.0139 
+Georgia
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0319 
+Hawaii
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0397 
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0059 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0184 
+	min_temperature_diff forecasts vader_diff, p value: 0.0003 
+	precipitation_diff forecasts vader_diff, p value: 0.0225 
+Idaho
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0002 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0002 
+	precipitation_diff forecasts vader_diff, p value: 0.0007 
+Illinois
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0052 
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0066 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0098 
+	min_temperature_diff forecasts vader_diff, p value: 0.0165 
+	num_trop_nights_diff forecasts vader_diff, p value: 0.0166 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0377 
+Indiana
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0029 
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0239 
+	mean_temperature_diff forecasts vader_diff, p value: 0.013 
+	min_temperature_diff forecasts vader_diff, p value: 0.0164 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0007 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0018 
+Iowa
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0136 
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0045 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0117 
+	max_temperature_diff forecasts vader_diff, p value: 0.0493 
+	num_trop_nights_diff forecasts vader_diff, p value: 0.0029 
+Kansas
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0038 
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0071 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0042 
+	min_temperature_diff forecasts vader_diff, p value: 0.0059 
+	num_trop_nights_diff forecasts vader_diff, p value: 0.0185 
+Kentucky
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0025 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0072 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0003 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0005 
+	precipitation_diff forecasts vader_diff, p value: 0.0008 
+Louisiana
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0007 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0043 
+	max_temperature_diff forecasts vader_diff, p value: 0.004 
+	num_trop_nights_diff forecasts vader_diff, p value: 0.0379 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0199 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0143 
+	precipitation_diff forecasts vader_diff, p value: 0.0001 
+Maine
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0021 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0102 
+	precipitation_diff forecasts vader_diff, p value: 0.0186 
+Maryland
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0195 
+	max_temperature_diff forecasts vader_diff, p value: 0.0302 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0007 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0016 
+	precipitation_diff forecasts vader_diff, p value: 0.0013 
+Massachusetts
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0395 
+	precipitation_diff forecasts vader_diff, p value: 0.0296 
+Michigan
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0304 
+	min_temperature_diff forecasts vader_diff, p value: 0.0086 
+	precipitation_diff forecasts vader_diff, p value: 0.0355 
+Minnesota
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0375 
+	num_frost_days_diff forecasts vader_diff, p value: 0.0037 
+Mississippi
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0496 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0447 
+	precipitation_diff forecasts vader_diff, p value: 0.0402 
+Missouri
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0029 
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0101 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0062 
+	max_temperature_diff forecasts vader_diff, p value: 0.0263 
+	min_temperature_diff forecasts vader_diff, p value: 0.017 
+	num_trop_nights_diff forecasts vader_diff, p value: 0.0088 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0004 
+Montana
+	no significant forecasting relationships identified
+Nebraska
+	no significant forecasting relationships identified
+Nevada
+	num_frost_days_diff forecasts vader_diff, p value: 0.0257 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0011 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0022 
+	precipitation_diff forecasts vader_diff, p value: 0.0021 
+New Hampshire
+	no significant forecasting relationships identified
+New Jersey
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0005 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0011 
+	precipitation_diff forecasts vader_diff, p value: 0.0009 
+New Mexico
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0257 
+New York
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0485 
+North Carolina
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.004 
+	max_temperature_diff forecasts vader_diff, p value: 0.0082 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0225 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0201 
+	precipitation_diff forecasts vader_diff, p value: 0.0001 
+North Dakota
+	num_frost_days_diff forecasts vader_diff, p value: 0.0281 
+Ohio
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0454 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0179 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0203 
+	precipitation_diff forecasts vader_diff, p value: 0.0115 
+Oklahoma
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0157 
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0097 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0077 
+	min_temperature_diff forecasts vader_diff, p value: 0.0007 
+	num_trop_nights_diff forecasts vader_diff, p value: 0.0031 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0017 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0079 
+	precipitation_diff forecasts vader_diff, p value: 0.0004 
+Oregon
+	no significant forecasting relationships identified
+Pennsylvania
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.032 
+	precipitation_diff forecasts vader_diff, p value: 0.0338 
+Rhode Island
+	precipitation_diff forecasts vader_diff, p value: 0.0031 
+South Carolina
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0128 
+	precipitation_diff forecasts vader_diff, p value: 0.0001 
+South Dakota
+	no significant forecasting relationships identified
+Tennessee
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0028 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0067 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0007 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0002 
+	precipitation_diff forecasts vader_diff, p value: 0.0004 
+Texas
+	no significant forecasting relationships identified
+Utah
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0004 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0012 
+	precipitation_diff forecasts vader_diff, p value: 0.0005 
+Vermont
+	precipitation_diff forecasts vader_diff, p value: 0.0086 
+Virginia
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0071 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0332 
+	max_temperature_diff forecasts vader_diff, p value: 0.0052 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.001 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0008 
+	precipitation_diff forecasts vader_diff, p value: 0.0004 
+Washington
+	no significant forecasting relationships identified
+West Virginia
+	max_avg_temperature_diff forecasts vader_diff, p value: 0.0073 
+	mean_temperature_diff forecasts vader_diff, p value: 0.0345 
+	max_1day_precipitation_diff forecasts vader_diff, p value: 0.0008 
+	max_5day_cumulative_precipitation_diff forecasts vader_diff, p value: 0.0013 
+	precipitation_diff forecasts vader_diff, p value: 0.0033 
+Wisconsin
+	min_avg_temperature_diff forecasts vader_diff, p value: 0.0122 
+	min_temperature_diff forecasts vader_diff, p value: 0.0129 
+	num_frost_days_diff forecasts vader_diff, p value: 0.004 
+Wyoming
+	num_trop_nights_diff forecasts vader_diff, p value: 0.0132 
+	precipitation_diff forecasts vader_diff, p value: 0.0133 
