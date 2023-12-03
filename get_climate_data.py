@@ -173,16 +173,19 @@ def get_climate_data():
 		if not response:
 			print(f'skipping {var_code}', file=sys.stderr)
 		response_data = json.loads(response)['data']
-		for state, year_data in response_data.items():
-			for year, data in year_data.items():
-				collected_data[year][state][var_code] = data
+		for state, month_data in response_data.items():
+			for date, data in month_data.items():
+				collected_data[date][state][var_code] = data
 
 	# write results to stdout in csv format
-	print(DELIMITER.join(['year', 'state'] + ordered_labels))
+	print(DELIMITER.join(['date', 'state'] + ordered_labels))
 
-	for year, state_data in collected_data.items():
+	for date, state_data in collected_data.items():
 		for state, metric_data in state_data.items():
-			entry = [year, state]
+			entry = [
+				date,
+				geocode_to_name[state] if state != 'USA' else 'USA'
+			]
 			for label in ordered_labels:
 				code = labels_to_codes[label]
 				entry.append(str(metric_data[code]))
